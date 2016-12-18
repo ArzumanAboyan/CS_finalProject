@@ -1,0 +1,176 @@
+<html>
+<head>
+	<title>BattleShip</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel = "stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<div class="header">
+	<img class="logo" src="images/logo.png">
+	BattleShip</div>
+<div class="modal fade" id="howto" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title"> How to play</h4>
+			</div>
+			<div class="modal-body">
+				<p>This is a game of two!<br/>
+					There is only you and them!<br/><br/>
+					Wait for your enemy! Then...<br/>
+				Put some powerful ships in your area in the Caribbean Sea and prepare to defend!<br/><br/>
+					On your turn click somewhere on the Opponent's Sea and try to find and destroy your enemy's ships!<br/><br/>
+					You have to find them <b>ALL.</b><br/><br/>
+					Good Luck, my Captain!
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" type="button" class="btn btn-default"> Got it!</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 id='popup' class="modal-title"> Game Over!</h4>
+			</div>
+			<div class="modal-body">
+				<p id="message"></p>
+			</div>
+			<div class="modal-footer">
+				<button id= 'exit-button'  onclick="location.href = '/';" type="button"
+						class="btn btn-default"> Play Again</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="main-area container">
+	<div class="row">
+		<div class = "top_menu">
+			<div class="col-md-12" id="start_play"></div>
+			<div class="col-md-12" id="put_ships"></div>
+		</div>
+		<div id = "settings_area" class="col-md-12">
+
+			<div id ="ships" class="col-md-6" >
+				<div class = "four-length-ship" >
+					<h4 class="col-md-6">A four length ship</h4>
+					<div class=" col-md-12">
+						<div >
+							<img  class="ship" src="images/4.png" style="width:150px; height:40px">
+						</div>
+					</div>
+				</div>
+				<div class = "three-length-ship">
+					<h4 class="col-md-12"  >Three length ships</h4>
+					<div class=" col-md-6">
+						<div >
+							<img  class="ship" src="images/3.png" style="width:120px; height:40px">
+						</div>
+					</div>
+					<div class=" col-md-6">
+						<div >
+							<img  class="ship" src="images/3.png" style="width:120px; height:40px">
+						</div>
+					</div>
+				</div>
+				<div class = "two-length-ship">
+					<h4 class="col-md-12" >Two length ships</h4>
+					<div class=" col-md-3">
+						<div >
+							<img  class="ship" src="images/2.png" style="width:90px; height:40px">
+						</div>
+					</div>
+
+					<div class=" col-md-3">
+						<div >
+							<img  class="ship" src="images/2.png" style="width:90px; height:40px">
+						</div>
+					</div>
+					<div class=" col-md-3">
+						<div >
+							<img  class="ship" src="images/2.png" style="width:90px; height:40px">
+						</div>
+					</div>
+				</div>
+				<div class = "one-length-ship">
+					<h4 class="col-md-12" >One length ships</h4>
+					<div class=" col-md-2">
+						<div >
+							<img  class="ship" src="images/1.png" style="width:40px; height:40px">
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div >
+							<img  class="ship" src="images/1.png" style="width:40px; height:40px">
+						</div>
+					</div>
+					<div class=" col-md-2">
+						<div >
+							<img  class="ship" src="images/1.png" style="width:40px; height:40px">
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div >
+							<img  class="ship" src="images/1.png" style="width:40px; height:40px">
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div id ="your_grid" class="col-md-6 grid">
+			<table class="table">
+				<thead>
+				<th></th>
+				<th>A</th>
+				<th>B</th>
+				<th>C</th>
+				<th>D</th>
+				<th>E</th>
+				<th>F</th>
+				<th>G</th>
+				<th>H</th>
+				<th>I</th>
+				<th>J</th>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<div id ="opponent_grid" class="col-md-6 grid">
+			<table class="table">
+				<thead>
+				<th></th>
+				<th>A</th>
+				<th>B</th>
+				<th>C</th>
+				<th>D</th>
+				<th>E</th>
+				<th>F</th>
+				<th>G</th>
+				<th>H</th>
+				<th>I</th>
+				<th>J</th>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="/jquery-ui/jquery-ui.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
+
